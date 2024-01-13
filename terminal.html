@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treeHouseTerminal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap" rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" data-auto-replace-svg></script>
+</head>
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a class="active" href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+        </nav>
+        <div class="head-container">
+            <i class="fa-solid fa-terminal"></i>
+            <svg class="logo-icon header-nav-item-logo-icon" alt="樹屋" preserveAspectRatio="xMinYMin meet" viewBox="0 0 30 32">
+                <path d="M26.5 5.9c-1.1-0.6-2.8 0.4-3.9 2.2l-1.9 3.2c-0.7 1.3-0.6 3 0.3 4.2l0.1 0.1c0.9 1.2 2.1 2.4 2.4 2.8 0.2 0.2 0.4 0.5 0.5 0.9 0.3 1.1-0.3 2.3-1.5 2.6 -1.1 0.3-2.3-0.3-2.7-1.5 -0.1-0.3-0.1-0.6-0.1-0.8 0.1-0.5-0.1-1.2-0.8-2 -0.7-0.7-2.1 0.7-2.5 2.1v0.1c-0.4 1.4-0.7 2.7-0.6 2.8 0.1 0.1 0.1 0.1 0.1 0.2 0.6 1.2 0.2 2.6-1 3.2 -1.2 0.6-2.7 0.2-3.3-1s-0.2-2.6 1-3.2c0.1 0 0.1-0.1 0.2-0.1 0.1 0 0.3-0.6 0.6-1.4 0.2-0.7 0.3-1 0.4-1.3 0.1-0.4 0.3-1.4 0.2-1.8 -0.1-0.5-0.6-0.5-1.2-0.2 -0.3 0.2-0.9 0.7-1.1 0.9 -0.5 0.4-0.9 1-1.1 1.5 -0.1 0.2-0.3 0.5-0.5 0.7 -0.9 0.7-2.3 0.6-3-0.3 -0.7-0.9-0.6-2.2 0.3-3 0.3-0.2 0.6-0.4 0.9-0.4 0.5-0.1 2.4-1.2 3.5-2 0.2-0.1 0.5-0.4 0.6-0.5 0.3-0.4 0-0.7-0.3-0.7 -0.9 0.1-1.9 0.2-2.1 0.5 -0.1 0.1-0.2 0.3-0.4 0.4 -0.9 0.6-2.1 0.4-2.7-0.4 -0.6-0.8-0.4-2 0.4-2.6 0.4-0.3 0.8-0.4 1.2-0.4 0.7 0 2.5 0.4 4 0.1l0.4-0.1c1.5-0.3 3.3-1.6 4-2.9 0 0 0.7-1.2 1.6-2.7 0.9-1.5 0.8-3.2-0.1-3.7l-1.7-1c-0.9-0.5-2.3-0.5-3.2 0L1.6 7C0.7 7.5 0 8.6 0 9.6v12.8c0 1 0.7 2.2 1.6 2.7l11.9 6.5c0.9 0.5 2.3 0.5 3.2 0l11.8-6.5c0.9-0.5 1.6-1.7 1.6-2.7V9.6c0-1-0.7-2.2-1.6-2.7C26.5 5.9 28.5 7 26.5 5.9z"></path>
+            </svg>
+        </div>
+    </header>
+    <section>
+        <nav class="command-nav">
+            <form>
+                <fieldset>
+                    <legend>Filter</legend>
+                    <div class="select-container">
+                        <div>
+                            <input type="radio" id="all" name="select" checked>
+                            <label for="all">終端指令</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="common" name="select">
+                            <label for="common">常用指令</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div id="nav" class="nav-container">
+                <a class="common" href="#help-">help</a>
+                <a href="#vi">vi</a>
+                <a href="#nano">nano</a>
+                <a href="#whoami-">whoami</a>
+                <a href="#concentrate-">cat</a>
+                <a href="#more-">more</a>
+                <a href="#less-">less</a>
+                <a href="#echo-">echo</a>
+                <a href="#history-">history</a>
+                <a href="#copy-">cp</a>
+                <a href="#move-">mv</a>
+                <a href="#find-">find</a>
+                <a href="#grep-">grep</a> 
+                <a class="common" href="#ls-">ls</a> 
+                <a class="common" href="#clear-">clear</a>
+                <a class="common" href="#cd-">cd</a> 
+                <a class="common" href="#pwd-">pwd</a> 
+                <a class="common" href="#rm-">rm</a>
+                <a class="common" href="#mkdir-">mkdir</a>
+            </div>
+        </nav>
+        <ul id="introduction">
+            <li id="help-">
+                <dt>[command] --help</dt><br>
+                <dt>man [command] （for mac users）</dt>
+                <dd>指令的操作手冊</dd>
+            </li>
+            <li id="vi-">
+                <dt>vi</dt>
+                <dd>打開vi編輯器（若內建有vim會使用vim）</dd>
+                <dt>vi [file]</dt>
+                <dd>打開檔案，此時在"命令模式"(若無檔案會創建檔案)</dd>
+                <dd>按i進入"插件模式"，才能開始編輯</dd>
+                <dd>按esc回到"命令模式"</dd>
+                <dd>按:w保存文件再按:q退出文件（也可以直接按:wq保存退出）</dd>
+                <dd></dd>
+            </li>
+            <li id="nano-">
+                <dt>nano</dt>
+                <dd>打開nano編輯器</dd>
+                <dt>nano [file]</dt>
+                <dd>打開nano編輯器編輯檔案</dd>
+            </li>
+            <li id="whoami-">
+                <dt>whoami</dt>
+                <dd>輸出username</dd>
+            </li>
+            <li id="concatenate-">
+                <dt>cat</dt><br>
+                <dt>cat [file]</dt>
+                <dd>查看檔案的內容(內容太多不會全顯示)</dd>
+                <dt>cat [include]*[include]</dt>
+                <dd>*代表擴展名，include沒輸入，會顯示當前資料夾所有檔案的內容</dd>
+                <dd>顯示包含[include]的檔案的內容（例如"*副檔名","in*.html","*d*"都有效）</dd>
+                <dt>cat -n [file]</dt>
+                <dd>查看檔案的內容，內容每行會列號</dd>
+            </li>
+            <li id="more-">
+                <dt>more</dt><br>
+                <dt>more [file]</dt>
+                <dd>查看檔案的內容(內容太多會分段輸出)</dd>
+            </li>
+            <li id="less-">
+                <dt>less</dt><br>
+                <dt>less [file]</dt>
+                <dd>查看檔案的內容(內容一次性輸出，案q退出後內容不會留在terminal視窗)</dd>
+            </li>
+            <li id="echo-">
+                <dt>echo</dt><br>
+                <dt>echo [something]</dt>
+                <dd>輸出"輸入的內容"</dd>
+            </li>
+            <li id="history-">
+                <dt>history</dt>
+                <dd>輸出"執行過的命令歷史記錄"</dd>
+                <dt>history -c</dt>
+                <dd>清除"執行過的命令歷史記錄"</dd>
+            </li>
+            <li id="copy-">
+                <dt>cp</dt><br>
+                <dt>cp [copy-file] [paste]</dt>
+                <dd>複製檔案並貼上</dd>
+                <dd>paste如果是file，則檔案會以paste名稱複製到當前路徑</dd>
+                <dd>paste如果是pathway，則檔案會複製到指定路徑</dd>
+                <dt>cp -r [copy-directory] [paste]</dt>
+                <dd>複製資料夾(含子檔)並貼上</dd>
+            </li>
+            <li id="move-">
+                <dt>mv</dt><br>
+                <dt>mv [origin-file] [new-file]</dt>
+                <dd>更改檔案名稱</dd>
+                <dt>mv [file/directory] [pathway]</dt>
+                <dd>移動檔案或資料夾位置</dd>
+            </li>
+            <li id="find-">
+                <dt>find</dt>
+                <dd>搜訊當前資料夾所有內含的directory及file</dd>
+                <dt>find -name "[directory/file]"</dt>
+                <dd>尋找特定名稱的資料夾或檔案</dd>
+            </li>
+            <li id="grep-">
+                <dt>grep</dt>
+                <dt>grep [string] [file]</dt>
+                <dd>搜尋file中含有特定"字串"的行</dd>
+            </li>
+            <li id="ls-">
+                <dt>ls</dt>
+                <dd>顯示當前資料夾的檔案</dd>
+                <dt>ls -a</dt>
+                <dd>顯示檔案(包含隱藏的檔案)</dd>
+                <dt>ls -l</dt>
+                <dd>顯示檔案及其詳細資訊</dd>
+                <dt>ls -t</dt>
+                <dd>顯示檔案(以修改時間做排序)</dd>
+                <dt>ls [pathway]</dt>
+                <dd>顯示指定路徑的檔案</dd>
+            </li>
+            <li id="clear-">
+                <dt>clear</dt>
+                <dd>快捷鍵為ctrl+L</dd>
+                <dd>將terminal視窗清乾淨</dd>
+            </li>
+            <li id="cd-">
+                <dt>cd [pathway]</dt><br>
+                <dt>cd ..</dt>
+                <dd>移動到上一個資料夾</dd>
+                <dt>cd /[絕對路徑]</dt>
+                <dd>/是根目錄</dd>
+                <dt>cd ~[路徑]</dt>
+                <dd>~是當前工作目錄的home directory</dd>
+            </li>
+            <li id="pwd-">
+                <dt>pwd</dt>
+                <dd>顯示當前資料夾的路徑</dd>
+            </li>
+            <li id="rm-">
+                <dt>rm</dt><br>
+                <dt>rm [file]</dt>
+                <dd>刪除文件</dd>
+                <dt>rm -r [directory]</dt>
+                <dd>刪除資料夾及其內容(會詢問確認是否刪除)</dd>
+                <dt>rm -rf [directory]</dt>
+                <dd>強制刪除資料夾及其內容</dd>
+            </li>
+            <li id="mkdir-">
+                <dt>mkdir</dt><br>
+                <dt>mkdir [directory]</dt>
+                <dd>創建資料夾(無法含子資料夾)</dd>
+                <dt>mkdir -p [directory]</dt>
+                <dd>遞迴創建資料夾及子資料夾</dd>
+            </li>
+        </ul>
+    </section>
+    <footer></footer>
+    <script src="app.js"></script>
+</body>
+</html>

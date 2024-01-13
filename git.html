@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treeHouseGit</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap" rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" data-auto-replace-svg></script>
+</head>
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a href="./terminal.html">terminal</a>
+            <a class="active" href="./git.html">git&gitHub</a>
+        </nav>
+        <div class="head-container">
+            <i class="fa-brands fa-square-git"></i> 
+            <i class="fa-brands fa-square-github"></i>
+        </div>
+    </header>
+    <section>
+        <nav class="command-nav">
+            <form>
+                <fieldset>
+                    <legend>Filter</legend>
+                    <div class="select-container">
+                        <div>
+                            <input type="radio" id="all" name="select" checked>
+                            <label for="all">所有指令</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="set" name="select">
+                            <label for="set">設定相關</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="view" name="select">
+                            <label for="view">檢視相關</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="commit" name="select">
+                            <label for="commit">提交相關</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="branch" name="select">
+                            <label for="branch">分支相關</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="reset" name="select">
+                            <label for="reset">復原相關</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="remote" name="select">
+                            <label for="remote">遠端相關</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="notUseful" name="select">
+                            <label for="notUseful">用途不大</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div id="nav" class="nav-container">
+                <a class="set" href="#init-">git init</a>
+                <a class="set" href="#config-">git config</a>
+                <a class="view reset" href="#status-">git status</a>
+                <a class="view" href="#log-">git log</a>
+                <a class="view" href="#reflog-">git reflog</a>
+                <a class="view" href="#diff-">git diff</a>
+                <a class="commit" href="#add-">git add</a>
+                <a class="commit" href="#commit-">git commit</a>
+                <a class="branch" href="#branch-">git branch</a>
+                <a class="branch" href="#switch-">git select
+                <a class="branch" href="#merge-">git merge</a>
+                <a class="branch reset" href="#checkout-">git checkout</a> 
+                <a class="reset" href="#restore-">git restore</a>   
+                <a class="reset" href="#revert-">git revert</a>  
+                <a class="reset" href="#reset-">git reset</a>
+                <a class="remote" href="#clone-">git clone</a>
+                <a class="remote" href="#remote-">git remote</a>
+                <a class="remote" href="#push-">git push</a>
+                <a class="remote" href="#fetch-">git fetch</a>
+                <a class="remote" href="#pull-">git pull</a>
+                <a class="notUseful" href="#rm-">git rm</a>
+                <a class="notUseful" href="#rm-">git mv</a>
+            </div>
+        </nav>
+        <ul id="introduction">
+            <li id="init-">
+                <dt>git init</dt>
+                <dd>創建新的local-repo</dd>
+            </li>
+            <li id="config-">
+                <dt>git config</dt><br>
+                <dt>git config [--global] user.name "[name]"</dt>
+                <dd>設定git中的使用者名稱</dd>
+                <dt>git config [--global] user.email "[email]"</dt>
+                <dd>設定git中的使用者信箱</dd>
+                <dt>git config --global core.editor "code --wait"</dt>
+                <dd>將默認編輯器改為VScode</dd>
+            </li>
+            <li id="status-">
+                <dt>git status</dt>
+                <dd>顯示當前跟current-HEAD的差異，且有提示引導下一步or上一步(復原)</dd>
+            </li>
+            <li id="log-">
+                <dt>git log</dt>
+                <dd>顯示commit記錄</dd>
+                <dt>git log --oneline</dt>
+                <dd>顯示commit記錄，每個記錄只顯示1行</dd>
+                <dt>git log -d [-num]</dt>
+                <dd>顯示commit記錄，並對比提交的修改（有點像git diff），顯示最近的num個提交記錄差異</dd>
+            </li>
+            <li id="reflog-">
+                <dt>git reflog</dt><br>
+                <dt>git reflog show</dt>
+                <dd>顯示git追蹤的歷史記錄(有時效性)</dd>
+            </li>
+            <li id="diff-">
+                <dt>git diff</dt>
+                <dd>只能查看working tree跟最新commit的差異</dd>
+                <dt>git diff --staged</dt>
+                <dd>只能查看staging area跟最新commit的差異</dd>
+                <dt>git diff HEAD [file]</dt>
+                <dd>可以同時查看working tree和staging area跟最新commit的差異</dd>
+                <dd>若只想要看特定的檔案，可以輸入filename</dd>
+                <dt>git diff [HASH]..[HASH]</dt>
+                <dd>查看兩個存檔點的差異</dd>
+                <dt>git diff [branch]..[branch]</dt>
+                <dd>查看兩個分支的差異</dd>
+            </li>
+            <li id="add-">
+                <dt>git add</dt><br>
+                <dt>git add [file]</dt>
+                <dd>將指定檔案移至"準備提交區(staging area)"</dd>
+                <dt>git add .</dt>
+                <dd>將所有檔案移至"準備提交區(staging area)"</dd>
+            </li>
+            <li id="commit-">
+                <dt>git commit</dt>
+                <dd>提交至local-repo，提交時會開啟默認編輯器，可以方便輸入多行commit-log</dd>
+                <dt>git commit -m "[message]"</dt>
+                <dd>提交至local-repo，提交時可以順便輸入單行commit-log</dd>
+            </li>
+            <li id="branch-">
+                <dt>git branch</dt>
+                <dd>顯示所有local-repo的branch</dd>
+                <dt>git branch [branch-name]</dt>
+                <dd>創建分支，但不會切換分支</dd>
+                <dt>git branch -d [branch-name]</dt>
+                <dd>刪除分支(需要merge後才能刪除，想強制刪除改成-D)</dd>
+                <dt>git branch -m [branch name]</dt>
+                <dd>變更分支名稱(想強制更名改成-M)</dd>
+                <dt>git branch -r</dt>
+                <dd>查看所有remote-repo的branch</dd>
+            </li>
+            <li id="switch-">
+                <dt>git switch</dt><br>
+                <dt>git switch [branch-name]</dt>
+                <dd>切換到指定分支</dd>
+                <dt>git switch -c [branch-name]</dt>
+                <dd>創建並切換到指定分支</dd>
+            </li>
+            <li id="merge-">
+                <dt>git merge</dt><br>
+                <dt>git merge [branch-name]</dt>
+                <dd>當前分支合併指定分支</dd>
+                <dd>情況3種</dd>
+                <dd><span>第1種</span>：只有指定分支有新進度(不打開編輯器，直接進行快速合併)</dd>
+                <dd><span>第2種</span>：兩個分支都有新進度，但檔案無衝突(會打開編輯器，關閉視窗則自動提交)</dd>
+                <dd><span>第3種</span>：兩個分支都有新進度，且檔案有衝突(打開編輯器，手動編輯衝突資料，且要手動提交)</dd>
+            </li>
+            <li id="checkout-">
+                <dt>git checkout</dt><br>
+                <!-- <dt>git checkout [branch-name]</dt>
+                <dd>切換到指定分支</dd>
+                <dt>git checkout -b [branch-name]</dt>
+                <dd>創建並切換到指定分支</dd> -->
+                <dt>git checkout [commit-hash||ref]</dt>
+                <dd>HEAD追蹤hash或ref，回到之前的提交記錄/歷史記錄(想重新編輯只要創建分支即可)</dd>
+            </li>
+            <li id="restore-">
+                <dt>git restore</dt><br>
+                <dt>git restore [file]</dt>
+                <dd>將指定的檔案還原到最近commit的樣貌(刪除也可以還原)</dd>
+                <dt>git restore --source [commit-hash] [file]</dt>
+                <dd>將指定檔案還原至指定commit的樣貌</dd>
+            </li>
+            <li id="revert-">
+                <dt>git revert</dt><br>
+                <dt>git revert [commit-hash]</dt>
+                <dd>創建一個commit，這個commit是剛剛輸入的commit-hash紀錄(默認編輯器會跳出來讓我們編輯logname，關閉後即為提交)</dd>
+                <dd>通常用於協作開發(刪除他人記錄並不禮貌)</dd>
+            </li>
+            <li id="reset-">
+                <dt>git reset</dt><br>
+                <dt>git reset [commit-hash||ref]</dt>
+                <dd>移除commit-hash之後的所有提交記錄(歷史記錄不會被移除)，HEAD導回commit-hash或ref，但working-tree不會還原</dd>
+                <dt>git reset --hard [commit-hash||ref]</dt>
+                <dd>移除commit-hash之後的所有提交記錄(歷史記錄不會被移除)，HEAD導回commit-hash或ref，且working-tree會還原</dd>
+            </li>
+            <li id="clone-">
+                <dt>git clone</dt><br>
+                <dt>git clone [url]</dt>
+                <dd>複製remote-repo到local</dd>
+            </li>
+            <li id="remote-">
+                <dt>git remote</dt>
+                <dd>顯示與local-repo相關聯的"remote-repo名稱"</dd>
+                <dt>git remote -v</dt>
+                <dd>跟git remote一樣，只是顯示更詳細的資訊</dd>
+                <dt>git remote add [remote-name] [remote-url]</dt>
+                <dd>使local-repo與remote-repo產生關聯</dd>
+                <dt>git remote rename [old-name] [new-name]</dt>
+                <dd>重新命名remote-repo</dd>
+                <dt>git remote remove [remote-name]</dt>
+                <dd>解除local-repo與指定remote-repo的關聯(並非移除remote-repo的資料)</dd>
+            </li>
+            <li id="push-">
+                <dt>git push</dt>
+                <dd>local-repo資料上傳默認remote-repo的分支</dd>
+                <dt>git push [-u] [remote] [branch]</dt>
+                <dd>local-repo資料上傳指定remote-repo的分支，-u是設定默認上傳路徑</dd>
+            </li>
+            <li id="fetch-">
+                <dt>git fetch</dt>
+                <dd>默認獲取origin-remote-repo的所有分支記錄</dd>
+                <dt>git fetch [remote-name] [remote-branch]</dt>
+                <dd>獲取remote-repo的提交記錄，但不影響local的提交記錄</dd>
+            </li>
+            <li id="pull-">
+                <dt>git pull</dt>
+                <dd>相當於git fetch加git merge</dd>
+                <dd>默認獲取origin上跟local-branch同名的remote-branch的記錄</dd>
+                <dt>git pull [remote-name] [remote-branch]</dt>
+                <dd>跟git pull一樣，只是有指定remote的name跟branch</dd>
+            </li>
+            <li id="rm-">
+                <dt>git rm</dt><br>
+                <dt>git rm [file]</dt>
+                <dd>刪除local-repo中的檔案（跟terminal的rm相比，只差在直接到staging-area而已，其實提交後效果都一樣）</dd>
+            </li>
+            <li id="mv-">
+                <dt>git mv</dt><br>
+                <dt>git mv [origin-filename] [new-filename]</dt>
+                <dd>檔案更名（跟terminal的mv相比，只差在直接到staging-area而已，其實提交後效果都一樣）</dd>
+            </li>
+        </ul>
+    </section>
+    <footer></footer>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treeHouseTerminal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap" rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" data-auto-replace-svg></script>
+</head>
+<body>
+    <header>
+        <nav class="guide-container">
+            <a class="active" href="./index.html">Home</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+        </nav>
+        <h1><a href="https://www.w3schools.com/html/html5_semantic_elements.asp">Semantic Elements</a> &amp; Css tricks</h1>
+    </header>
+    <main>
+        <section>
+            <h3>&lt;header&gt;</h3>
+            <p>通常包含 logo / 主標題 / 網站描述 / &lt;nav&gt;（&lt;header&gt;的導航欄不要到別人的網站）</p>
+        </section>
+        <section>
+            <h3>&lt;nav&gt;</h3>
+            <p>主要跟"連結"相關，不限於只能在&lt;header&gt;裡</p>
+        </section>
+        <section>
+            <h3>&lt;main&gt;</h3>
+            <p>主要內容，可以包含多個&lt;section&gt;</p>
+            <p>此元素每個頁面使用一次就好。不要放重複的內容(例如header/footer/aside已經有的內容)</p>
+        </section>
+        <section>
+            <h3>&lt;section&gt;</h3>
+            <p>將內容以主題作分段，通常帶有標題</p>
+        </section>
+        <section>
+            <h3>&lt;article&gt;</h3>
+            <p>通常是獨立的文章，含標題 / 內容等等</p>
+        </section>
+        <section>
+            <h3>&lt;aside&gt;</h3>
+            <p>內容應該要與主要內容間接相關，可以是廣告 / 文章 / 連結</p>
+        </section>
+        <section>
+            <h3>&lt;strong&gt;跟&lt;em&gt;</h3>
+            <p>強調用，取代以前的&lt;b&gt;跟&lt;i&gt;</p>
+        </section>
+        <section>
+            <h3>&lt;figure&gt;</h3>
+            <p>通常是獨立的內容，影片 / 圖片 / 備註等等</p>
+            <p>備註會放在&lt;figcaption&gt;裡面</p>
+        </section>
+        <section>
+            <h3>&lt;blockquote&gt;</h3>
+            <p>引用了其他來源的東西，包含書籍 / 文章 / 名言等等</p>
+            <p>引用的作者會放在&lt;cite&gt;裡面</p>
+        </section>
+        <section>
+            <h3>&lt;footer&gt;</h3>
+            <p>通常包含 作者資訊 / 版權資訊 / 聯絡資訊 / &lt;nav&gt;（&lt;footer&gt;的導航欄通常是到其他個人社群）</p>
+        </section>
+        <section>
+            <h3>當內容沒有超出範圍，讓&lt;footer&gt;貼齊下方空間的方法</h3>
+<pre>
+    content in the &lt;body&gt; without &lt;footer&gt;{
+        min-height: calc(100vh - &lt;footer&gt;height)
+    }
+</pre>
+        </section>
+        <section>
+            <h3>rwd，偵測手機、平板橫向模式的顯示</h3>
+<pre>
+    @media (orientation: portrait) {
+        content...
+        }
+</pre>
+            <p>portrait是指手機等的橫向模式</p>
+        </section>
+        <section>
+            <h3>利用flex輕鬆將navbar的內容標題分成左右邊的方法</h3>
+<pre>
+    .container{
+        display: flex;
+    }
+    .item-1{
+        margin-right: auto;
+    }
+</pre>
+            <p>想從第幾個開始分開，就選擇第幾個item</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+        <a href="mailto:xxx@gmail.com?subject=Hi%20There">xxx@gmail.com</a>
+        <address>company address</address>
+    </footer>
+    <script src="app.js"></script>
+</body>
