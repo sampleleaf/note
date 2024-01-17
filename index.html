@@ -15,7 +15,8 @@
 <body>
     <header>
         <nav class="guide-container">
-            <a class="active" href="./index.html">Home</a>
+            <a class="active" href="#">Home</a>
+            <a href="./js.html">jsNotion</a>
             <a href="./terminal.html">terminal</a>
             <a href="./git.html">git&gitHub</a>
         </nav>
@@ -68,29 +69,29 @@
         <section>
             <h3>當內容沒有超出範圍，讓&lt;footer&gt;貼齊下方空間的方法</h3>
 <pre>
-    content in the &lt;body&gt; without &lt;footer&gt;{
-        min-height: calc(100vh - &lt;footer&gt;height)
-    }
+content in the &lt;body&gt; without &lt;footer&gt;{
+    min-height: calc(100vh - &lt;footer&gt;height)
+}
 </pre>
         </section>
         <section>
             <h3>rwd，偵測手機、平板橫向模式的顯示</h3>
 <pre>
-    @media (orientation: portrait) {
-        content...
-        }
+@media (orientation: portrait) {
+    content...
+    }
 </pre>
             <p>portrait是指手機等的橫向模式</p>
         </section>
         <section>
             <h3>利用flex輕鬆將navbar的內容標題分成左右邊的方法</h3>
 <pre>
-    .container{
-        display: flex;
-    }
-    .item-1{
-        margin-right: auto;
-    }
+.container{
+    display: flex;
+}
+.item-1{
+    margin-right: auto;
+}
 </pre>
             <p>想從第幾個開始分開，就選擇第幾個item</p>
         </section>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treeHouseTerminal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap" rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" data-auto-replace-svg></script>
+    <style>
+        section{
+            border: 1px solid black;
+        }
+        b{
+            background-color: rgb(162, 247, 189);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a class="active" href="#">jsNotion</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+        </nav>
+        <h1>JsNotion</h1>
+    </header>
+    <main>
+        <section>
+            <h3>
+<pre>
+function(參數){
+
+}
+</pre>
+            </h3>
+            <p>參數的變數叫parameter，參數的值叫arguement</p>
+        </section>
+        <section>
+            <h3>函數宣告function name()　／　函數表達式let name = function()</h3>
+            <p>js程式碼執行之前，會將<b>函數宣告</b>移到當前作用域的頂部，此現象稱為"hoisting"</p>
+            <p><b>函數表達式</b>只影響"表達式以下"的當前作用域</p>
+        </section>
+        <section>
+            <h3>函數表達式　&ne;　匿名函數</h3>
+            <p>雖然函數表達式經常跟匿名函數一起使用，但兩者並非一樣的概念</p>
+            <pre>
+<b>有名字的</b>函數表達式                   <b>匿名的</b>函數表達式 
+var add = function sum(x, y) {  ||  var add = function(x, y) {
+    return x + y;               ||      return x + y;
+};                              ||  };
+            </pre>
+        </section>
+        <section>
+            <h3><a href="https://devhints.io/jsdoc">JSDoc註釋(VScode可以安裝)</a></h3>
+            <p>這是一個有規範的函數註釋方法</p>
+        </section>
+        <section>
+            <h3>添加or刪除元素到array的method</h3>
+            <p>array.method([Elements])</p>
+            <p>push() pop() shift() unshift()</p>
+        </section>
+        <section>
+            <h3>array with <b>spread</b> operator</h3>
+            <p>let example = [1, <b>...</b>array, 2]</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
