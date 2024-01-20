@@ -14,9 +14,13 @@
     <style>
         section{
             border: 1px solid black;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
         b{
             background-color: rgb(162, 247, 189);
+        }
+        del{
+            text-decoration: line-through;
         }
     </style>
 </head>
@@ -61,13 +65,113 @@ var add = function sum(x, y) {  ||  var add = function(x, y) {
             <p>這是一個有規範的函數註釋方法</p>
         </section>
         <section>
-            <h3>添加or刪除元素到array的method</h3>
-            <p>array.method([Elements])</p>
-            <p>push() pop() shift() unshift()</p>
+            <h3>常用的array.method()</h3>
+            <p>添加or刪除元素：push([element])，pop()，shift()，unshift([element])</p>
+            <p>join([separator])：將array中的elements合併，轉換成一個string，分隔element的<b>separator默認</b>為<b>','</b></p>
+            <p>includes(searchElement)：搜尋array中是否含有指定的element，會回傳boolean</p>
+            <p>indexOf(searchElement)：回傳指定element在array中的索引序號</p>
         </section>
         <section>
             <h3>array with <b>spread</b> operator</h3>
             <p>let example = [1, <b>...</b>array, 2]</p>
+        </section>
+        <section>
+            <h3>object with <b>spread</b> operator</h3>
+            <p>let example = {<b>...</b>object1, <b>...</b>object2}</p>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of">for [iterateValue] of [iterable]</a></h3>
+            <p>iterable(可被迭代的對象)可以是array或string</p>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in">for [iterateKey] in [object]</a></h3>
+            <p>Use a for...in <b>loop to access(iterate)</b> each key (or property name) in an object.</p>
+            <p><b>循環讀取(迭代)</b>object的key(或稱property)</p>
+            <p>要讀取object的value不能用點表示法<del>object.iterateKey</del>要用方括號標示法object[iterateKey]</p>
+        </section>
+        <section>
+            <h3>常用的object.method()</h3>
+            <p>Object.keys(<b>[object]</b>)可獲取<b>object</b>花括號的key，以array的方式來輸出。</p>
+            <p>Object.values(<b>[object]</b>)可獲取<b>object</b>花括號key的value，以array的方式來輸出。</p>
+            <p>Object.entries(<b>[object]</b>)可獲取<b>object</b>花括號[key, value]，以array的方式來輸出。</p>
+        </section>
+        <section>
+            <h3>window</h3>
+            <p>window is the global object of the environment our JavaScript is running in</p>
+            <p>調用window的property不需要特別輸入window，例如window.alert()跟alert()是一樣的</p>
+        </section>
+        <section>
+            <h3>window.document</h3>
+            <p>The window object also contains a really important property named <b>document</b>, which
+                is an object and it's the <b>entry point into the DOM loaded in the current window</b>.
+                We can use the <b>document object to select and control elements of the web page</b>.</p>
+            <p>window.document會return整個HTML的document-object，HTML的元素透過DOM被視為object，這些object稱為node(節點)，可用js操控</p>
+            <p>可以將DOM視為HTML標記的樹狀結構，其結構來自一個root-document-node</p>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><b>EventTarget</b>.addEventListener(type, listener)</a></h3>
+            <p>eventTarget ➔ 觸發事件的元素</p>
+            <p>type ➔ 事件名稱(eventName)</p>
+            <p>listener ➔ 事件處理程序(eventHandler) ➔ eventHandler(<b>eventListner</b>) </p>
+            <p>※eventHandler是function，eventListner是function參數</p>
+            <p>※function參數是eventObject，eventObject.target就是eventTarget</p>
+        </section>
+        <section>
+            <h3>事件委託(Event Delegation)</h3>
+            <p>故意將event-handler綁定到parent-element上，而不是原本想執行event的每個child-element上，這樣可以增加效能，減少內存占用</p>
+            <p>原理是<b>利用event-flow</b>(capture-phase➔<b>target-phase(在這邊指的就是child-element)</b>➔bubble-phase)。<b>點擊child-element時，event會傳播到parent-element</b>，由parent-element來進行事件處理，
+                但要記得<b>添加condition判斷，來指定想要觸法事件的child-element</b>，否則parent-element自己也會被event影響到，造成非期望的效果</p>
+            <p>treehouseCourse說是利用bubble-phase，但把addEventListner的option設定為true(capture-phase觸發)，仍然有效果，故個人認為是event-flow</p>
+            <pre>
+                
+//section是input的parent-element
+let section = document.getElementsByTagName('section')[0];
+
+section.addEventListener('click', (e) => {
+    <b>if(e.target.tagName === 'INPUT'){</b>
+    e.target.style.backgroundColor = 'rgb(255, 255, 0)';
+    <b>}</b>
+});
+/*
+    沒有if()的情況下，section包含其子級，只要被點擊，元素背景都會變黃色
+    有if()的情況下，只有input被點擊時，input背景會變黃色
+*/
+            </pre>
+        </section>
+        <section>
+            <h3>JavaScript互動涉及的三個基本操作</h3>
+            <p>選擇元素、操作元素、監聽使用者操作</p>
+        </section>
+        <section>
+            <h3>document.method()，選擇元素</h3>
+            <p>舊語法：getElementById("")，getElementsByTagName("")，getElementsByClassName("")</p>
+            <p>新語法：querySelector("")，querySelectorAll("")</p>
+            <p>只要return複數elements，通常是回傳HTMLCollection或NodeList，雖然不太一樣，但它們都是DOM的類陣列對象(array-like object)</p>
+        </section>
+        <section>
+            <h3><a href="https://dev.to/jharteaga/difference-between-htmlcollection-and-nodelist-25bp">HTMLCollection vs NodeList</a></h3>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection">HTMLCollection</a>不能直接使用array.method()，NodeList可以</p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">NodeList</a>包含元素節點和文字節點，HTMLCollection只包含元素節點而已</p>
+            <p>當利用js增加一個新element時，不刷新頁面的情況，HTMLCollection會即時更新(動態資料結構)，而NodeList則不會偵測到這個新元素(大部分情況是靜態資料結構)</p>
+        </section>
+        <section>
+            <h3>document.method()之創建元素。node.property之添加節點內容。element.method()之將DOM元素送進window.document中</h3>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement">createElement([tagName])</a>會創建DOM元素，但不在window.document中，所以不會顯示在網頁上</p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent">textContent</a>添加內容到指定元素節點(創建的元素並沒有自帶內容)</p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/append">append()</a>跟<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend">prepend()</a>將元素送進指定element的child裡，前者是放last-child，後者是放first-child</p>
+        </section>
+        <section>
+            <h3>element.method()</h3>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/remove">remove()</a>此method無參數，指定的element即是刪除的目標</p>
+        </section>
+        <section>
+            <h3>element.property</h3>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/children">children</a>會return所有child-element，呈現方式像array，但其實是HTMLCollection，不能使用array method，不過可以迭代</p>
+        </section>
+        <section>
+            <h3>node.property</h3>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">parentNode</a>會return父節點</p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentElement">parentElement</a>會return父元素節點</p>
         </section>
     </main>
     <footer>
