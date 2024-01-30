@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseNote</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap"
+        rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        data-auto-replace-svg></script>
+    <style>
+        section {
+            border: 1px solid black;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        b {
+            background-color: rgb(162, 247, 189);
+        }
+
+        code b {
+            background-color: rgb(231, 150, 227);
+        }
+
+        strong {
+            background-color: rgb(232, 235, 237);
+            color: rgb(123, 89, 173);
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        code {
+            display: block;
+            padding: 10px;
+            background-color: rgb(45, 51, 57);
+            color: #ffffff;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a href="./js.html">jsNotion</a>
+            <a href="./js2.html">jsNotion2</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+            <a href="./installReact.html">installReact</a>
+            <a class="active" href="#">react</a>
+        </nav>
+        <h1>react</h1>
+    </header>
+    <main>
+        <section>
+            <h3><a href="https://react.dev/learn/writing-markup-with-jsx">何謂jsx</a></h3>
+            <p>jsx是javascript的語法擴展，允許我們編寫類似html的程式碼在js的檔案中</p>
+            <p>react不會創建實際的DOM節點，創建的html-element不是真正的element，它創建的是一個描述DOM節點的object</p>
+            <p>可以試著console.log()，就知道答案了</p>
+            <p>要將jsx渲染到網頁上，我們需要利用react的createRoot API</p>
+            <p>這個類html標籤內或標籤之間都可以添加<b>{js表達式}</b>，稱為"jsx表達式"</p>
+        </section>
+        <section>
+            <h3><a href="https://teamtreehouse.com/library/react-basics-4/embed-javascript-expressions-in-jsx">jsx-規則</a></h3>
+            <ol>
+                <li>
+                    <p><b>Return a single root element</b>這個意思是當我們要寫複數元素時，記得要用<b>&lt;div&gt;&lt;/div&gt;</b>或<b>&lt;&gt;&lt;/&gt;</b>包住，否則<a href="<b>&lt;div&gt;&lt;/div&gt;</b>或<b>&lt;&gt;&lt;/&gt;</b>">error</a>，因為無法直接傳回多個object</p>
+                    <p><b>&lt;div&gt;&lt;/div&gt;</b>或<b>&lt;&gt;&lt;/&gt;</b>的區別只是在網頁顯示上用不用div包住而已</p>
+                </li>
+                <li><p><b>Close all the tags</b>所有標籤末尾一定要加<b>/</b></p></li>
+                <li><p><b>camelCase</b>就是命名任何名字要保持的格式，例如類html中沒有class，得替換成className</p></li>
+            </ol>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/reference/react-dom/client/createRoot">createRoot</a></h3>
+            <p>作為entry-point的main.jsx通常會預設好一個createRoot，當然我們也可以自己修改</p>
+            <p>渲染網頁時，index.html中的&lt;div id="root"&gt;&lt;/div&gt;內的所有內容會被jsx取代，包含這個元素本身，但在這元素以外則不會</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+    </footer>
+    <script src="app.js"></script>
+</body>

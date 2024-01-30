@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseNote</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap" rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" data-auto-replace-svg></script>
+    <style>
+        section{
+            border: 1px solid black;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        b{
+            background-color: rgb(162, 247, 189);
+        }
+        code b{
+            background-color: rgb(231, 150, 227);
+        }
+        strong{
+            background-color: rgb(232, 235, 237);
+            color: rgb(123, 89, 173);
+        }
+        del{
+            text-decoration: line-through;
+        }
+        code {
+            display: block;
+            padding: 10px;
+            background-color: rgb(45, 51, 57);
+            color: #ffffff;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a href="./js.html">jsNotion</a>
+            <a class="active" href="#">jsNotion2</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+            <a href="./installReact.html">installReact</a>
+            <a href="./react.html">react</a>
+        </nav>
+        <h1>JsNotion</h1>
+    </header>
+    <main>
+        <section>
+            <h3>回調函數(callback-function)的概念</h3>
+            <pre>
+            <code>
+    function callbackFunction(){
+        //statement
+    };
+    function executeCallback(<b>callback</b>){   //step2 callbackFunction儲存在callback的變量之中(傳遞函數名稱，勿加括號，否則會立即呼叫)
+        <b>callback</b>()                        //step3 括號出現了，呼叫callbackFunction
+    };
+    executeCallback(<b>callbackFunction</b>);    //step1 callbackFunction沒有括號，因為還沒呼叫此函數
+            </code>
+            </pre>
+            <hr>
+            <pre>
+            <code>
+    let callbackFunction = <b>function(){</b>               ◣          function executeCallback(callback){
+        <b>//statement</b>                                  ██◣            callback()               //step2 呼叫匿名函數
+    <b>}</b>                                     ███████████████◣      };
+    function executeCallback(callback){   █████████████████▶    executeCallback(<b>function(){</b>  //step1 參數建立匿名函數，非呼叫函數
+        callback()                        ███████████████◤          <b>//statement;</b>
+    };                                               ██◤        <b>}</b>);
+    executeCallback(callbackFunction);               ◤          ※兩者輸出是一樣的
+            </code>
+            </pre>
+        </section>
+        <section>
+            <h3>可以回調函數的method()</h3>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">addEventListener()</a>
+                <p>addEventListener(type, listener)，listener就是回調函數</p>
+            </div><br>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/setTimeout">setTimeout()</a>
+                <p>設置一個倒數計時，時間到執行函數：setTimeout(functionRef, delay)</p>
+            </div><br>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/setInterval">setInterval()</a>
+                <p>每多少延遲重複執行函數：setInterval(func, delay)</p>
+            </div>
+        </section>
+        <section>
+            <h3><a href="https://yokarilight.medium.com/javascript%E4%B8%AD%E7%9A%84%E5%91%BC%E5%8F%AB%E5%A0%86%E7%96%8A-call-stack-%E6%98%AF%E7%94%9A%E9%BA%BC-16837dd10a81">Call stack概念</a></h3>
+            <h3><a href="https://ithelp.ithome.com.tw/articles/10274837?sc=iThomeR">Asynchronous概念</a></h3>
+        </section>
+        <section>
+            <h3>promise</h3>
+            <pre>
+            <code>
+    const variable = new Promise(function(resolve, reject){
+        if(boolean){
+            resolve(<b>...do something</b>) //promise的resolve函數會<b>傳遞參數</b>到then-method的"第一個回調函數的參數"
+        }else{
+            reject(<strong>...do something</strong>)  //promise的reject函數會<strong>傳遞參數</strong>到"then-method的第二個回調函數的參數"和"catch-method的回調函數的參數"
+        }
+    })
+
+    variable
+        .then(function(<b>data</b>){   //promise處理成功時，then不是接收promise的resolve函數，而是接收"promise的resolve函數傳遞的參數"作為"回調函數的參數"而已
+            //statement
+        },function(<strong>data</strong>){       //通常有catch-method的情況下，不用特別再寫then-method的第二個回調函數
+            //statement
+        })
+        .catch(function(<strong>error</strong>){ //promise處理失敗時，接收promise的reject函數傳遞的參數作為catch回調函數的參數
+            //statement
+        })
+        .finally(function(){    //無論promise成功或失敗，promise結束時都會調用
+            //statement
+        })
+            </code>
+            </pre>
+        </section>
+        <section>
+            <h3>promise.prototype.method()</h3>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">then()</a>
+                <pre>
+                <code>
+    promise.then(
+        onFulfilled, // 處理成功狀態的回調函數，接收promise回調函數成功時的參數(resolveFunc的參數)
+        onRejected   // 處裡失敗狀態的回調函數，接收promise回調函數失敗時的參數(rejectFunc的參數)
+    );
+                </code>
+                </pre>
+            </div>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">catch()</a>
+                <pre>
+                <code>
+    promise.catch(
+        onRejected   // 處裡失敗狀態的回調函數，接收promise回調函數失敗時的參數(rejectFunc的參數)
+    );
+                </code>
+                </pre>
+            </div>
+            <div>
+                <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally">finally()</a>
+                <p>用在promise結束時，想要執行的東西</p>
+            </div>
+        </section>
+        <section>
+            <h3>Promise.method()</h3>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">all()</a>
+                <p>所有迭代的promise的處理狀態為成功時，才全部回傳，只要一個失敗，都不回傳</p>
+                <pre>
+                <code>
+    const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Promise 1');
+        }, 1000);
+    });
+        
+    const promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Promise 2');
+        }, 1500);
+    });
+        
+    const promise3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Promise 3');
+        }, 2000);
+    });
+        
+    // 將多個 Promise 包裝成一个新的 Promise
+    <b>Promise.all(</b>[promise1, promise2, promise3]<b>)</b>
+        .then(results => {
+            console.log('所有 Promise 都成功:', results);
+        })
+        .catch(error => {
+            console.error('只要有一個 Promise 失敗:', error);
+        });
+                </code></pre>
+                <p>promise1,2,3實際運用的時候，可能是fetch(url)1,2,3</p>
+            </div>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">fetch()</a></h3>
+            <p>return：可以被解析為response物件的promise</p>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/async_function">async</a></h3>
+            <p>async關鍵字主要兩個作用：<b>１.</b>標記function為非同步<b>２.</b>使function內可使用await</p>
+            <p>只是聲明function是非同步的，若沒有使用await，這個function仍然不會進行async操作(不會自動使statement操作變async)</p>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await">await</a></h3>
+            <p>await關鍵字主要用於暫停async-function的執行(不影響javascript同步任務，仍持續執行)，等待promise被解決(pending變成resolve或reject)，才執行下一個步驟</p>
+            <pre>
+            <code>
+    <b>async</b> function fetchData(url){
+        const response = <b>await</b> fetch(url);
+        const data = <b>await</b> response.json();
+        return data
+    }
+            </code>
+            </pre>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch">try...catch</a></h3>
+            <p>當try區塊的程式碼出現問題時，就會執行catch區塊的程式碼</p>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw">throw</a></h3>
+            <p>當執行當前函數時，程式執行將會停止（throw後的陳述式將不會被執行，並且控制權將會轉移到呼叫堆疊中的第一個catch區塊。如果在呼叫函數中不存在任何catch區塊，程式將會終止。</p>
+            <pre><code>//try...catch和throw和async/await結合使用範例
+    async function fetchData(url){
+        <b>try {</b>
+            const response = await fetch(url);
+            const data = await response.json();
+            return data
+        <b>} catch (error) {</b>
+            <strong>throw</strong> <b>error</b>
+        <b>}</b>
+    }
+            </code></pre>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+    </footer>
+    <script src="app.js"></script>
+</body>

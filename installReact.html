@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseNote</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap"
+        rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        data-auto-replace-svg></script>
+    <style>
+        section {
+            border: 1px solid black;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        b {
+            background-color: rgb(162, 247, 189);
+        }
+
+        code b {
+            background-color: rgb(231, 150, 227);
+        }
+
+        strong {
+            background-color: rgb(232, 235, 237);
+            color: rgb(123, 89, 173);
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        code {
+            display: block;
+            padding: 10px;
+            background-color: rgb(45, 51, 57);
+            color: #ffffff;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a href="./js.html">jsNotion</a>
+            <a href="./js2.html">jsNotion2</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+            <a class="active" href="#">installReact</a>
+            <a href="./react.html">react</a>
+        </nav>
+        <h1>react-install</h1>
+    </header>
+    <main>
+        <section>
+            <h3>react install for beginner</h3>
+            <p><a href="https://github.com/facebook/create-react-app">npx create-react-app my-app</a>安裝react到my-app資料夾中
+            </p>
+            <p>安裝完成後，進入my-app，可以執行以下的指令</p>
+            <p><b>npm start</b>啟動一個開發用的伺服器，開發者可以在這邊進行測試</p>
+            <p><b>npm run build</b>react會將原始程式碼編譯、壓縮並打包，生成用於可以部署到web伺服器上的靜態檔案，會看到有一個叫build的資料夾。此時因為已經產生最後的應用包，無法再繼續修改原程式碼，唯一的方法就是用git回到過去的commit</p>
+            <p><b>npm test</b>用於測試程式碼，通常是用在片段，例如說components</p>
+            <p><b>npm run eject</b>使用這個指令後，應用程式將不再使用Create React App提供的預設配置，而是使用自定義的配置，這意味著開發者需要自行管理和維護配置，而且無法復原，這是永久性的，新手不用動這個</p>
+        </section>
+        <section>
+            <h3>簡單解釋react的src目錄裡的檔案</h3>
+            <p><b>App.js</b>：在這個檔案中，App函數中return內的東西可以修改，來改變網頁的頁面呈現</p>
+            <p><b>App.css</b>：App.js利用<b>import '[file]'</b>導入app.css。這個文件可以刪除，我們可以用自己的style.css</p>
+            <p><b>index.js</b>：</p>
+            <ul>
+                <li>新手一般不會動到這個檔案，只需了解index.js會導入app.js，然後用ReactDOM.render將app.js渲染到HTML指定的節點上</li>
+                <li>HTML指定的節點，react一開始是設置在作為template的public/index.html中的div.id="root"</li>
+            </ul>
+            <p><b>reportWebVitals.js</b>：用於監測和報告網頁性能指標，index.js也會導入這個檔案</p>
+            <p><b>menifest.json</b>：主要與用戶在瀏覽器中看到的應用程式外觀和行為有關(新手知道這個就可以)。用於 Progressive Web App (PWA)
+                的配置文件，描述了應用程式的名稱、圖示、顏色和啟動方式等信息</p>
+            <p><b>App.test.js</b>：主要用於測試</p>
+        </section>
+        <section>
+            <h3>react+bootstrap</h3>
+            <p><a href="https://react-bootstrap.netlify.app/docs/getting-started/introduction">npm install
+                    react-bootstrap bootstrap</a></p>
+            <p>想添加bootstrap的css效果，得去app.js添加這行import 'bootstrap/dist/css/bootstrap.min.css';</p>
+            <p>如果想添加react-bootstrap標記，app.js要添加這行import { 標記 } from 'react-bootstrap';</p>
+            <p>如果不想塞太多標記在app.js裡，可以開其他js檔，添加這行import { 標記 } from 'react-bootstrap';並且建立一個function，將標記塞在裡面，然後用export
+                default [function]，將function導出，再從app.js用import [function] from [fileRoute]</p>
+        </section>
+        <section>
+            <h3>react install by VITE</h3>
+            <p><a href="https://vitejs.dev/guide/">npm create vite@latest</a></p>
+            <p>我們會用npm run dev啟動開發用伺服器，其實這些指令可以在package.json中的scripts找到</p>
+        </section>
+        <section>
+            <h3>簡單處理vite安裝react後在src的檔案</h3>
+            <p><b>app.jsx</b>這其實不是什麼重要的東西，在預設裡，他只是component而已。main.jsx用&lt;App /&gt;將component渲染到網頁上，可刪可不刪，要在這邊修改也可，畢竟他就是component</p>
+            <p><b>app.css</b>這就更不用說了，他只是app.jsx這個component的css而已，刪了也無妨</p>
+            <p><b>main.jsx</b>這個是react的entry-point</p>
+            <p><b>index.css</b>main.jsx會import這個css檔案</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+    </footer>
+    <script src="app.js"></script>
+</body>

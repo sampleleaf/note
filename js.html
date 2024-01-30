@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>treeHouseTerminal</title>
+    <title>CourseNote</title>
     <link rel="stylesheet" href="style.css">
     <!-- google-font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +19,22 @@
         b{
             background-color: rgb(162, 247, 189);
         }
+        code b{
+            background-color: rgb(231, 150, 227);
+        }
+        strong{
+            background-color: rgb(232, 235, 237);
+            color: rgb(123, 89, 173);
+        }
         del{
             text-decoration: line-through;
+        }
+        code {
+            display: block;
+            padding: 10px;
+            background-color: rgb(45, 51, 57);
+            color: #ffffff;
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -29,8 +43,11 @@
         <nav class="guide-container">
             <a href="./index.html">Home</a>
             <a class="active" href="#">jsNotion</a>
+            <a href="./js2.html">jsNotion2</a>
             <a href="./terminal.html">terminal</a>
             <a href="./git.html">git&gitHub</a>
+            <a href="./installReact.html">installReact</a>
+            <a href="./react.html">react</a>
         </nav>
         <h1>JsNotion</h1>
     </header>
@@ -54,10 +71,10 @@ function(參數){
             <h3>函數表達式　&ne;　匿名函數</h3>
             <p>雖然函數表達式經常跟匿名函數一起使用，但兩者並非一樣的概念</p>
             <pre>
-<b>有名字的</b>函數表達式                   <b>匿名的</b>函數表達式 
-var add = function sum(x, y) {  ||  var add = function(x, y) {
-    return x + y;               ||      return x + y;
-};                              ||  };
+<b>有名字的</b>函數表達式                   <b>匿名的</b>函數表達式
+<code>var add = function sum(x, y) {  █  var add = function(x, y) {
+    return x + y;               █      return x + y;
+};                              █  };</code>
             </pre>
         </section>
         <section>
@@ -122,9 +139,8 @@ var add = function sum(x, y) {  ||  var add = function(x, y) {
             <p>原理是<b>利用event-flow</b>(capture-phase➔<b>target-phase(在這邊指的就是child-element)</b>➔bubble-phase)。<b>點擊child-element時，event會傳播到parent-element</b>，由parent-element來進行事件處理，
                 但要記得<b>添加condition判斷，來指定想要觸法事件的child-element</b>，否則parent-element自己也會被event影響到，造成非期望的效果</p>
             <p>treehouseCourse說是利用bubble-phase，但把addEventListner的option設定為true(capture-phase觸發)，仍然有效果，故個人認為是event-flow</p>
-            <pre>
-                
-//section是input的parent-element
+            <pre>      
+<code>//section是input的parent-element
 let section = document.getElementsByTagName('section')[0];
 
 section.addEventListener('click', (e) => {
@@ -135,7 +151,7 @@ section.addEventListener('click', (e) => {
 /*
     沒有if()的情況下，section包含其子級，只要被點擊，元素背景都會變黃色
     有if()的情況下，只有input被點擊時，input背景會變黃色
-*/
+*/</code>
             </pre>
         </section>
         <section>
@@ -172,6 +188,34 @@ section.addEventListener('click', (e) => {
             <h3>node.property</h3>
             <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">parentNode</a>會return父節點</p>
             <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentElement">parentElement</a>會return父元素節點</p>
+        </section>
+        <section>
+            <h3>array.method()</h3>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">forEach(function(<b>para</b>){})</a>
+                <p>迭代array的<b>element</b>，每個element只調用1次</p>
+            </div>
+            <br>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter(function(<b>para</b>){})</a>
+                <p>輸出新array，array中的<b>element</b>是根據"statement的boolean"來決定是否return，一般來說會用condition判斷boolean。</p>
+                <p>如果statement非boolean，javaScript會強制轉換成boolean</p>
+                <p>如果return"非0數字""非空字串"等，會判斷為true，<b>element</b>會回傳</p>
+                <p>如果return"0""空字串""null""undefined"等，會判斷為false，<b>element</b>不回傳</p>      
+            </div>
+            <br>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map(function(<b>para</b>){})</a>
+                <p>輸出新array，array中的element數量不變，根據statement來改變<b>element</b>而已</p>
+            </div>
+            <br>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">reduce(function(accumulator, currentValue){},[initialValue])</a>
+                <p>輸出一個value</p>
+                <p>initialValue沒設置的情況下，accumulator為array[0]，currentValue會迭代array[0]之後的element</p>
+                <p>initialValue有設置的情況下，accumulator為initialValue，currentValue會迭代array的element</p>
+                <p>但假如accumulator被改變，其內容會更新，不會一直是初始值</p>
+            </div>
         </section>
     </main>
     <footer>

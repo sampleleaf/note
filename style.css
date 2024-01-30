@@ -16,6 +16,7 @@
     padding: 30px 20px;
 }
 
+
 .guide-container a{
     font-family: 'Aleo', serif;
     color: white;
@@ -51,6 +52,13 @@
     100% {border-color: rgb(255, 145, 145);}
 }
 
+@media screen and (max-width : 600px){
+    .guide-container{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        text-align: center;
+    }
+}
 /* header */
 .head-container{
     width: 100%;
