@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseNote</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap"
+        rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        data-auto-replace-svg></script>
+    <style>
+        section {
+            border: 1px solid black;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        b {
+            background-color: rgb(162, 247, 189);
+        }
+
+        code b {
+            background-color: rgb(231, 150, 227);
+        }
+
+        strong {
+            background-color: rgb(232, 235, 237);
+            color: rgb(123, 89, 173);
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        code {
+            display: block;
+            padding: 10px;
+            background-color: rgb(45, 51, 57);
+            color: #ffffff;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a href="./js.html">jsNotion</a>
+            <a href="./js2.html">jsNotion2</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+            <a href="./installReact.html">installReact</a>
+            <a href="./react.html">react</a>
+            <a class="active" href="#">react2</a>
+        </nav>
+        <h1>react</h1>
+    </header>
+    <main>
+        <section>
+            <h3><a href="https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example">lifting state up</a></h3>
+            <p>當兩個組件的state想一起變更時，建議建立一個父組件，把useState()從兩個組件移除，將useState()放到父組件去，然後透過props傳遞到兩個子組件</p>
+            <p>子組件回傳(upstream)資料到父組件可以利用callback-function(前提是有用props把函數傳遞下去)，否則只是unidirectional data flow(上到下，無下到上)</p>
+        </section>
+        <section>
+            <h3><a href="Controlling an input with a state variable">解釋當input設定value時，value無法被用戶直接更改的原因</a></h3>
+            <p>當value被設置時，react會將其認定為state，這個input元素就成為一個<b>受控組件（controlled component）</b>。這意味著其value受到react-component-state的控制，而不是直接從DOM中獲取的</p>
+            <p>要更改受控組件，可以用useState()</p>
+            <p>如果要從DOM獲取值，不要設置value屬性就可以了，他就會變成<b>非受控組件（uncontrolled component）</b></p>
+            <p>不過不設置為state，就不是用useState來獲取input的值，必須透過其他方式，例如ref</p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/reference/react-dom/components/common#react-event-object">react-event-object</a></h3>
+            <p>類似js的addEventListener，只是換成react的操作方式</p>
+            <p><a href="https://react.dev/reference/react-dom/components/common">props和event的參考</a></p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/reference/react/useEffect">useEffect hook</a></h3>
+            <p>
+                <code>useEffect(setup, dependencies?)</code>
+                <p><b>setup</b>：這裡會用函數，函數的執行時間點是在react渲染結束之後</p>
+                <p>dependencies?：主要控制<b>setup(副作用函數)</b>的執行時機，以及在什麼情況下執行。省略此參數的話，每次react重新渲染，setup都會再執行一遍。如果只想在首次渲染後執行，只要塞入空陣列就可以了</p>
+                <p>dependencies的陣列裡面能加入state、props、function、variable等來控制什麼情況執行</p>
+            </p>
+            <h3><a href="https://react.dev/reference/react/useEffect#connecting-to-an-external-system">關於useEffect的運行順序</a></h3>
+            <p><code>
+                useEffect(() => {
+                    let id; //id在這邊會變undefined
+                    console.log('running side effect')
+                    if(isRunning){
+                        id = setInterval(() => {
+                            setElapsedTime(elapsedTime => elapsedTime + 1)
+                        }, 1000);
+                    }
+                    return () => { <b>//THIS IS CLEANUP FUNCTION</b>
+                        clearInterval(id)<
+                        console.log('i run first')
+                    }
+                    /*
+                        clearInterval的id之所以不是undefined，
+                        可以查看文檔lifecycle of reactive effects
+                    */
+                }, [isRunning])
+            </code></p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/reference/react/memo">memo</a></h3>
+            <p>阻止浪費渲染，增加效能。有時候即便有些props沒改變，仍然整個重新渲染，這時候該利用memo</p>
+            <p><a href="https://dmitripavlutin.com/use-react-memo-wisely/">Use React memo wisely</a></p>
+            <p><a href="https://alexsidorenko.com/blog/react-list-rerender/">How to stop re-rendering lists in React?</a></p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/reference/react/useRef">useRef hook</a></h3>
+            <p><b>useRef(initialValue)</b>回傳一個object，object長的類似下方code</p>
+            <code>{ current : initialValue }</code>
+            <p>如果initialValue留空，則默認為undefined</p>
+            <p>一般會用將<b>useRef()存儲在variable</b>中，可以用ref屬性來接收</p>
+            <p>例如&lt;input ref={<b>variable</b>}/&gt;</p>
+            <p>這時候可以用於操作DOM，要獲取value只要利用current屬性</p>
+            <p>例如要獲取input的值，使用variable.current.value就可以了(記得variable是要用輸入在ref中的variable)</p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/learn/referencing-values-with-refs#differences-between-refs-and-state">ref和state</a></h3>
+            <p>我們可以根據情況使用ref或state，例如說不想觸發re-render時，我們可以選擇用ref。react-doc裡面也有寫下一段話，如下</p>
+            <p>When a piece of information is used for rendering, keep it in state. When a piece of information is only needed by event handlers and changing it doesn’t require a re-render, using a ref may be more efficient.</p>
+        </section>
+        <section>
+            <h3>使用"type check"來確認從props接收到的資料是否為正確的資料類型。在react中有主要3種</h3>
+            <p>先聲明props的資料類型(string,array等等)，如果傳入的props不是聲明的類型會發出警告</p>
+            <p>1.<a href="https://www.npmjs.com/package/prop-types">prop-types</a>現代react幾乎都用typescript</p>
+            <p>2.<a href="https://www.typescriptlang.org/">typescript</a></p>
+            <p>3.<a href="https://flow.org/">flow</a></p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/reference/react/useContext">useContext hook</a></h3>
+        </section>
+        <section>
+            <h3><a href="https://www.youtube.com/watch?v=Hd329g8iaa0&ab_channel=AkashBhat">Deploy React App On Github Pages</a></h3>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+    </footer>
+    <script src="app.js"></script>
+</body>

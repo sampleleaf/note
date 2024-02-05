@@ -58,6 +58,7 @@
             <a href="./git.html">git&gitHub</a>
             <a href="./installReact.html">installReact</a>
             <a class="active" href="#">react</a>
+            <a href="./react2.html">react2</a>
         </nav>
         <h1>react</h1>
     </header>
@@ -85,6 +86,57 @@
             <h3><a href="https://react.dev/reference/react-dom/client/createRoot">createRoot</a></h3>
             <p>作為entry-point的main.jsx通常會預設好一個createRoot，當然我們也可以自己修改</p>
             <p>渲染網頁時，index.html中的&lt;div id="root"&gt;&lt;/div&gt;內的所有內容會被jsx取代，包含這個元素本身，但在這元素以外則不會</p>
+        </section>
+        <section>
+            <h3>創建component</h3>
+            <p>用function來製作component，作為component的function名稱開頭要大寫</p>
+            <p>function內要用return來回傳我們所輸入的jsx及內容，如果要輸入多行，得用<b>return()</b>，將jsx及內容輸入到括號內。不用括號的話，return那行以下的內容將被忽略</p>
+            <p>在.render中用jsx標記(大寫的function名稱加一個空格可以作為標記名稱)來顯示component</p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/learn/passing-props-to-a-component"></a>傳遞props到component</h3>
+            <p>主要功能可以說props將資料從parent-component傳到child-component</p>
+            <p>作為component的function的第一個參數為props</p>
+            <p>jsx中的標記所添加的屬性(props)，都可以被調用。例如&lt;Header haha="something"/&gt;，haha就是props的key</p>
+            <p>注意，props在react是"read-only-value唯獨值"，所以不能直接修改。此為錯誤範例：props.haha = "something2"，這樣會error</p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/reference/react/useState">useState hook</a></h3>
+            <p>Data from state is distributed to components through props</p>
+            <p>這是hook裡面的其中一種功能，用來管理react-component的<b>state(Managing data that changes over time)</b></p>
+            <p><b>useState(初始值)</b>回傳一個陣列，陣列有兩個值，[0]為參數傳入的"初始值"，[1]為可以改變初始值的set函數</p>
+            <p>我們可以利用react的內建事件onClick，來觸發改變初始值的事件</p>
+            <p>要改變初始值得在set函數的參數內，初始值無法直接修改，<b>改變初始值，實際上是用新值取代，而非直接改變初始值</b></p>
+            <p>
+                <code>const [state, setState] = useState(initialState)</code>
+                state不能直接被更改，他是const。setState是一個函數，函數內的參數會取代state的值，而不是非要以state來更改。
+            </p>
+            <p>setState函數的參數內建立的函數的參數會是"當前的state值"</p>
+        </section>
+        <section>
+            <h3><a href="https://react.dev/learn/queueing-a-series-of-state-updates">batch state update的概念</a></h3>
+            <pre><code>
+    const Counter = ({name}) => {
+        const [quantity, setQuantity] = useState(0) //記得useState的參數無法直接從外部定義變量傳入，需要利用react內部組件調用，例如props
+        
+        const incrementQuantity = () => {
+            <b>setQuantity(quantity + 1)
+            if(name == 'Apples'){
+            setQuantity(quantity + 1)</b>
+            }
+        }
+    }
+            </code></pre>
+            <p>以上述情況，在javascript中當名稱為Apples時，最後結果是會是+2</p>
+            <p>但在react中state是用<b>replace(取代)</b>的方式，且react會等到事件處理程序中的所有程式碼都執行完畢後才處理狀態更新</p>
+            <p>所以最後結果Apples仍是+1</p>
+            <p>如果想要累加的方式必須使用函數，setQuantity(quantity + 1)改成setQuantity(quantity => quantity + 1)，雖然一般不會這樣做</p>
+        </section>
+        <section>
+            <h3>react偵錯</h3>
+            <p><a href="https://react.dev/learn/react-developer-tools">安裝掛件，讓瀏覽器對react偵錯</a></p>
+            <p><a href="https://react.dev/reference/react/StrictMode#strictmode">StrictMode</a>react內建的偵錯</p>
+            <p><a href="https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key">iterate key</a>當使用map()來迭代時，加key有助於react追蹤。不加key雖不影響跑動，但會有warning</p>
         </section>
     </main>
     <footer>
