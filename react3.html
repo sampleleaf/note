@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseNote</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap"
+        rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        data-auto-replace-svg></script>
+    <style>
+        section {
+            border: 1px solid black;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        b {
+            background-color: rgb(162, 247, 189);
+        }
+
+        code b {
+            background-color: rgb(231, 150, 227);
+        }
+
+        strong {
+            background-color: rgb(232, 235, 237);
+            color: rgb(123, 89, 173);
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        code {
+            display: block;
+            padding: 10px;
+            background-color: rgb(45, 51, 57);
+            color: #ffffff;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a href="./js.html">jsNotion</a>
+            <a href="./js2.html">jsNotion2</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+            <a href="./installReact.html">installReact</a>
+            <a href="./react.html">react</a>
+            <a href="./react2.html">react2</a>
+            <a class="active" href="#">react3</a>
+            <a href="./reactRoute.html">reactRoute</a>
+        </nav>
+        <h1>react</h1>
+    </header>
+    <main>
+        <section>
+            <h3>Context</h3>
+            <p>記得一個簡單的概念就好，這個是為了取代props</p>
+            <p>The context API provides a way to pass data to components without having to pass props manually at every single level</p>
+            <p>用useContext就是想避免<b><a href="https://kentcdodds.com/blog/prop-drilling">prop-drilling</a></b>，明明parent-component沒用到prop，卻因為child-component需要，所以得傳遞prop，這樣的方式雖然沒問題，但程式碼越來越多時，未來將難以維護</p>
+            <p>Context API分成3個基本部分：1.<b>createContext()</b>2.<b>Provider</b>3.<b>Consumer</b></p>
+            <p><b><a href="https://react.dev/reference/react/createContext">createContext()</a></b>：sets up a context and <strong>returns an object</strong> with a provider and a consumer, the two main components of the context API</p>
+            <p>將createContext分配(assign)給variable，然後console.log(varible)，就可以知道<strong>回傳的object</strong>裝了什麼，裡面包含Consumer跟Provider</p>
+            <p><b><a href="https://react.dev/reference/react/createContext#provider">Provider</a></b>：used as high as possible in the tree, and it allows consumer components to subscribe to context changes</p>
+            <p>如果要為component的所有子級提供context，要在component的return()中加入Provider-tags，並將所有jsx包裝在Provider-tags內</p>
+            <p>Provider-tags需要一個value屬性來share data，value屬性的值可以是任何值，但通常是用"useState的state"和"event-handler"等有關操作的東西來作為值</p>
+            <p>A single provider can be connected to many consumers，利用這個特性，我們會用consumers來讀取provider的value，傳遞給包裝內的jsx</p>
+            <p><b>Consumer</b>：access the provider to get any data they need. The Consumer is what helps avoid "prop drilling"</p>
+            <p>存取方式有兩種：1.<b><a href="https://react.dev/reference/react/createContext#consumer">consumer-tags</a>(舊方法)</b>2.<b><a href="https://react.dev/reference/react/useContext">useContext hook</a>(新方法)</b></p>
+            <p>import { useContext, createContext } from 'react';</p>
+            <p>useContext(<b>SomeContext</b>)，此hook的參數只接收createContext()的參數，一般會將<b>createContext()存儲在變量</b>，代入useContext的參數中</p>
+            <p><a href="https://react.dev/learn/passing-data-deeply-with-context#use-cases-for-context">Context使用時機</a></p>
+        </section>
+        <section>
+            <h3><a href="https://www.developerway.com/posts/higher-order-components-in-react-hooks-era">higher-order component(HOC)</a></h3>
+            <p>A technique in React for reusing component logic. A HOC takes an existing component and returns a new component</p>
+            <p>常配合Context一起使用</p>
+            <code>
+                <b>檔案Context.js</b>
+                export const _ _Provider = (props) => {
+                    //寫在原component內，但在return(jsx)外的東西(ex.useState, useEffect, function等)
+                    return(
+                        &lt;_ _Context.Provider value={{
+                            //原component要傳遞的的prop
+                        }}&gt;
+                            {props.children} //指的是被包裝的jsx-tags，通常是包裝&lt;App /&gt;
+                        &lt;_ _Context.Provider&gt;
+                    )
+                }
+            </code>
+            <code>
+                <b>檔案index.js</b>
+                import { _ _Provider } from 'Context.js的路徑'
+                const root = ReactDOM.createRoot(document.getElementById('root'));
+                root.render(
+                    &lt;React.StrictMode&gt;
+                        &lt;BrowserRouter&gt;
+                            &lt;_ _Provider&gt;
+                                &lt;App /&gt;
+                            &lt;/_ _Provider&gt;
+                        &lt;/BrowserRouter&gt;
+                    &lt;/React.StrictMode&gt;
+                )
+            </code>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+    </footer>
+    <script src="app.js"></script>
+</body>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseNote</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap"
+        rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        data-auto-replace-svg></script>
+    <style>
+        section {
+            border: 1px solid black;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        b {
+            background-color: rgb(162, 247, 189);
+        }
+
+        code b {
+            background-color: rgb(231, 150, 227);
+        }
+
+        strong {
+            background-color: rgb(232, 235, 237);
+            color: rgb(123, 89, 173);
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        code {
+            display: block;
+            padding: 10px;
+            background-color: rgb(45, 51, 57);
+            color: #ffffff;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a href="./js.html">jsNotion</a>
+            <a href="./js2.html">jsNotion2</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+            <a href="./installReact.html">installReact</a>
+            <a href="./react.html">react</a>
+            <a href="./react2.html">react2</a>
+            <a href="./react3.html">react3</a>
+            <a class="active" href="#">reactRoute</a>
+        </nav>
+        <h1>reactRoute</h1>
+    </header>
+    <main>
+        <section>
+            <h3><a href="https://www.npmjs.com/package/react-router-dom">安裝react-router</a></h3>
+            <p>react本身不支援route，得安裝這個，來實現SinglePageApp功能</p>
+        </section>
+        <section>
+            <h3><a href="https://reactrouter.com/en/main/router-components/browser-router">browserRoute</a></h3>
+            <h3><a href="https://reactrouter.com/en/main/router-components/memory-router">Route跟Routes</a></h3>
+            <p><b>BrowserRouter</b>：keeps your UI in sync with the URL。讓使用者介面跟URL同步</p>
+            <p><b>Route跟Routes</b>：responsible for rendering UI (or other components)。負責路由要用哪個component渲染</p>
+            <p>路由導航不是靠以上兩者，是靠&lt;Link&gt;</p>
+            <code>
+    function App() {
+        return (
+            &lt;div className="container"&gt;
+                &lt;Routes&gt;
+                    &lt;Route <b>path</b>="/" <b>element</b>={&lt;Home /&gt;} /&gt;
+                    &lt;Route <b>path</b>="about" <b>element</b>={&lt;About /&gt;} /&gt;
+                &lt;/Routes&gt;
+            &lt;/div&gt;
+        );
+    }
+            </code>
+            <p><b>path</b>是URL的路徑。path的值，通常與URL的末尾匹配。一般不會加斜線(加了就是絕對路徑)，否則嵌套路由時，可能會出現意外</p>
+            <p><b>element</b>是指定用哪個component渲染</p>
+            <p>如果有很多component就多設一點Route就可以了，讓Route的屬性element來存取"jsx標記"</p>
+        </section>
+        <section>
+            <h3><a href="https://reactrouter.com/en/main/components/link">react-router的Link</a></h3>
+            <p>用來取代html的&lt;a&gt;，讓用戶使用頁面導覽時，不必重新加載整個頁面</p>
+            <h3><a href="https://reactrouter.com/en/main/components/nav-link">NavLink</a></h3>
+            <p>用來取代&lt;Link&gt;，跟&lt;Link&gt;的區別是，當輸入的URL匹配to屬型的value時，&lt;NavLink&gt;會自動加入className="active"</p>
+            <p>當NavLink嵌套在路線中時，可以利用將相對連結傳遞給to屬性的優勢(記得相對連結是不以正斜線開頭的連結)，使用相對連結可以輕鬆地連結到更深的URL，而無需知道整個路徑(前提是&lt;Route&gt;的path有設置好)</p>
+            <p>但用NavLink嵌套的方式時，&lt;Route&gt;會提示我們要在path屬性的URL後加入<b>/*</b>來確保相對連結，否則當我們嵌套時，child-route不會呈現</p>
+            <p>特殊的是<b>/</b>(根路由)，因為他匹配每個路由，所以舊版本不管哪個路由都會自動加入className="active"，因此得加入end屬性。但在新版本，這個end不用加，只會限定在根路由自動加入className="active"</p>
+            <p>end屬性，會判定比to屬性的value還長的url不匹配，這也是為何舊版本要利用此屬性來限制根路由的匹配</p>
+            <code>
+    &lt;NavLink
+        to="/messages"
+        className={({ isActive, isPending }) =>
+            <b>isPending ? "pending" : isActive ? "active" : ""</b>
+        }
+    &gt;
+            </code>
+            <p>上面的code是NavLink默認設定，如果我們想自定義，可以用props的value傳遞函數來改變，上面props的例子是className，要用在style也沒問題，但改變一樣要利用函數</p>
+        </section>
+        <section>
+            <h3><a href="https://teamtreehouse.com/library/react-router-v6-basics/descendant-and-nested-routing">Outlet</a></h3>
+            <p>用來<b>指出</b>嵌套在父component應該渲染的子component的位置，所以&lt;Outlet&gt;要放在子component</p>
+            <p>不想用NavLink嵌套，想改用Route嵌套，就會使用到Outlet，此時，parent&lt;Route&gt;的path無需像NavLink嵌套時，多加入<b>/*</b></p>
+        </section>
+        <section>
+            <h3><a href="https://reactrouter.com/en/main/components/navigate">Navigate</a></h3>
+            <p>有時候點父連結時，想直接讓用戶自動導向到子連結</p>
+            <p>這個parent-Route-path有3種方式可以設定</p>
+            <p>1.絕對路徑 /// 2.空字串 /// 3.<b>index</b></p>
+            <p>以上三種方式都可以繼承父連結</p>
+            <p>The <b>index</b> route is a child route with no path prop that renders in their parent route's outlet at the parent route's path.</p>
+            <p>再來是element屬性，value使用{&lt;Navigate to="" &gt;}，to屬性的value就會決定自動導向到哪邊，使用絕對或相對路徑都可以</p>
+            <p>但因為是重新導向，當用戶按返回鍵，很有可能又被重新導向回來，加入replace={true}可以解決這個問題</p>
+            <code>
+    &lt;Route path="courses" element={&lt;Courses /&gt;}>
+        &lt;Route <b>index</b> element={&lt;Navigate replace to="html"/&gt;} /> 
+    &lt;/Route>
+            </code>
+        </section>
+        <section>
+            <h3><a href="https://reactrouter.com/en/main/start/concepts#navigate-function">navigate function</a></h3>
+            <code>import { useNavigate } from 'react-router-dom';</code>
+            <code>let navigate = useNavigate()</code>
+            <code>navigate(path)</code>
+            <p>navigate的第一個參數就是想導航到的url</p>
+        </section>
+        <section>
+            <h3><a href="https://reactrouter.com/en/v6.3.0/getting-started/overview#not-found-routes">handle 404 Route</a></h3>
+            <p>利用程式碼由上而下跑的特性，加入一個匹配所有路徑的&lt;Route&gt;，範例如下</p>
+            <code>
+    &lt;Route path="courses" element={&lt;Courses /&gt;}>
+        &lt;Route <b>path="*"</b> element={404-component} /> 
+    &lt;/Route>
+            </code>
+            <p>但切記這個匹配所有路徑的&lt;Route&gt;不要放在最上方</p>
+        </section>
+        <section>
+            <h3><a href="https://reactrouter.com/en/main/hooks/use-params">useParams</a></h3>
+            <p>獲取url的params</p>
+        </section>
+        <section>
+            <h3><a href="https://reactrouter.com/en/main/start/concepts#review">總結複習</a></h3>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
