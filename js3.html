@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseNote</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap" rel="stylesheet">
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" data-auto-replace-svg></script>
+    <style>
+        section{
+            border: 1px solid black;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        b{
+            background-color: rgb(162, 247, 189);
+        }
+        code b{
+            background-color: rgb(231, 150, 227);
+        }
+        strong{
+            background-color: rgb(232, 235, 237);
+            color: rgb(123, 89, 173);
+        }
+        del{
+            text-decoration: line-through;
+        }
+        code {
+            display: block;
+            padding: 10px;
+            background-color: rgb(45, 51, 57);
+            color: #ffffff;
+            white-space: pre-wrap;
+        }
+        a{
+            background-color: rgb(254, 196, 125);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a href="./css.html">css</a>
+            <a href="./js.html">jsNotion</a>
+            <a href="./js2.html">jsNotion2</a>
+            <a class="active" href="#">jsNotion3</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+            <a href="./installReact.html">installReact</a>
+            <a href="./react.html">react</a>
+            <a href="./react2.html">react2</a>
+            <a href="./react3.html">react3</a>
+            <a href="./reactRoute.html">reactRoute</a>
+        </nav>
+        <h1>JsNotion</h1>
+    </header>
+    <main>
+        <section>
+            <h3><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals">模板文字</a></h3>
+            <p>${expression}可以像這樣<b>${variable || 'string'}</b>，當variable為false時會套用string，反之true則套用variable</p>
+        </section>
+        <section>
+            <h3><a href="https://www.w3schools.com/js/js_window_location.asp">JavaScript Window Location</a></h3>
+            <p>想要透過javascript切換網址，可以使用<b>window.location.href</b>，不過window不一定要打出來，其實用<b>location.href</b>同樣可以直接訪問</p>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URL/URL">new URL()</a></h3>
+            <p><b>new URL(相對or絕對網址)</b>可以將網址從string變成可訪問的object</p>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">searchParams</a></h3>
+            <p><b>new URL(window.location.href).searchParams</b>會返回一個對象，對象的key有properties和method</p>
+            <p>例如作為properties的<b>size</b>會回傳params的數量</p>
+            <p>例如作為method的<a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/forEach">forEach</a>的callback有3個argument，但主要前2個可以回傳url的paramKey和paramValue</p>
+            <p>獲取paramKeys跟paramValues就可以進行操作，比如fetchAPI的template的${expression}就可以置入</p>
+        </section>
+        <section>
+            <h3>Scroll Event</h3>
+            <p>通常會使用到<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight">innerHeight</a>&<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/scrollY">scrollY</a>&<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight">offsetHeight</a></p>
+            <p><b>innerHeight</b>是viewport的高度，可以當作100vh</p>
+            <p><b>scrollY</b>是垂直方向滾動的pixel</p>
+            <p><b>HTMLElement.offsetHeight</b>會讀取元素的高度，如果要獲取整個page的高度，使用document.body.offsetHeight就可以了</p>
+            <p>當網頁滾動到底時的條件就是<b>window.innerHeight + window.scrollY >= document.body.offsetHeight</b></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+    </footer>
+    <script src="app.js"></script>
+</body>

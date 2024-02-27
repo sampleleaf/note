@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseNote</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap"
+        rel="stylesheet">
+    <style>
+        a {
+            background-color: rgb(214, 190, 131);
+        }
+
+        b {
+            background-color: rgb(148, 219, 109);
+        }
+    </style>
+    <!-- cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        data-auto-replace-svg></script>
+</head>
+
+<body>
+    <header>
+        <nav class="guide-container">
+            <a href="./index.html">Home</a>
+            <a class="active" href="#">css</a>
+            <a href="./js.html">jsNotion</a>
+            <a href="./js2.html">jsNotion2</a>
+            <a href="./js3.html">jsNotion3</a>
+            <a href="./terminal.html">terminal</a>
+            <a href="./git.html">git&gitHub</a>
+            <a href="./installReact.html">installReact</a>
+            <a href="./react.html">react</a>
+            <a href="./react2.html">react2</a>
+            <a href="./react3.html">react3</a>
+            <a href="./reactRoute.html">reactRoute</a>
+        </nav>
+        <h1>CSS &amp; Css tricks</h1>
+    </header>
+    <main>
+        <section>
+            <h3>一些可能很常用，但以前不熟悉的東西</h3>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events">pointer-events</a>當某內容position:
+                fixed;覆蓋整個畫面時，想點擊其他內容點不到時，可以設置<b>pointer-events: none;</b>讓覆蓋畫面的點擊事件無效，就可以點擊覆蓋在下方的其他內容了</p>
+            <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/user-select">user-select</a>當不想讓人選取到文本時，可以設置<b>user-select:
+                    none;</b></p>
+            <p><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow">overflow</a>可以控制超出容器外的content該如何設定，要隱藏內容還是添加滑動來觀看所有content等
+            </p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio">aspect-ratio</a>可以控制圖片或容器的長寬比例
+            </p>
+            <p><a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">animation的shorthand</a>需要與keyframes一起用才能產生動畫效果
+            </p>
+            <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit">object-fit</a>跟background-size一樣，只是這個是對img元素進行操作</p>
+        </section>
+        <section>
+            <h3>skeleton loading css</h3>
+            <p>預先做好要加載畫面的容器大小，並且加載後利用js將其隱藏或移除</p>
+            <p>除了作出容器，還需要讓容器要animation的效果，讓用戶知道畫面正在跑動</p>
+            <p>加載圖片要用div包住，div要先預設大小，否則會有page-jumping的問題</p>
+            <p>預防圖片有image-jumping的問題，div最好預設<b>postion: relative;</b>及<b>overflow: hidden;</b>img則要設置<b>position: absolute;</b></p>
+        </section>
+        <section>
+            <h3>當內容沒有超出範圍，讓&lt;footer&gt;貼齊下方空間的方法</h3>
+            <pre>
+content in the &lt;body&gt; without &lt;footer&gt;{
+    min-height: calc(100vh - &lt;footer&gt;height)
+}
+</pre>
+        </section>
+        <section>
+            <h3>rwd，偵測手機、平板橫向模式的顯示</h3>
+            <pre>
+@media (orientation: portrait) {
+    content...
+    }
+</pre>
+            <p>portrait是指手機等的橫向模式</p>
+        </section>
+        <section>
+            <h3>利用flex輕鬆將navbar的內容標題分成左右邊的方法</h3>
+            <pre>
+.container{
+    display: flex;
+}
+.item-1{
+    margin-right: auto;
+}
+</pre>
+            <p>想從第幾個開始分開，就選擇第幾個item</p>
+        </section>
+        <section>
+            <h3>小工具</h3>
+            <a href="https://ithelp.ithome.com.tw/articles/10237385">vscode快捷鍵</a>
+            <a href="https://ithelp.ithome.com.tw/articles/10248487">免費授權圖庫</a>
+            <a href="https://cdnjs.com/libraries/font-awesome">fontawesome-cdn</a>
+            <a href="https://www.ginifab.com.tw/tools/colors/color_picker_from_image.php">color-pick</a>
+            <a href="https://en.wikipedia.org/api/rest_v1/#/Page%20content/get_page_">REST-API</a>
+            <a href="https://httpbin.org/#/">httpbin</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;2024 Benny Chang</p>
+        <a href="mailto:xxx@gmail.com?subject=Hi%20There">xxx@gmail.com</a>
+        <address>company address</address>
+    </footer>
+    <script src="app.js"></script>
+</body>

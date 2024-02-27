@@ -9,6 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Bungee+Spice&family=Diphylleia&family=Aleo:wght@700&family=Salsa&display=swap" rel="stylesheet">
+    <style>
+        a {
+            background-color: rgb(247, 206, 111);
+        }
+        b {
+            background-color: rgb(148, 219, 109);
+        }
+    </style>
     <!-- cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" data-auto-replace-svg></script>
 </head>
@@ -16,8 +24,10 @@
     <header>
         <nav class="guide-container">
             <a class="active" href="#">Home</a>
+            <a href="./css.html">css</a>
             <a href="./js.html">jsNotion</a>
             <a href="./js2.html">jsNotion2</a>
+            <a href="./js3.html">jsNotion3</a>
             <a href="./terminal.html">terminal</a>
             <a href="./git.html">git&gitHub</a>
             <a href="./installReact.html">installReact</a>
@@ -26,7 +36,7 @@
             <a href="./react3.html">react3</a>
             <a href="./reactRoute.html">reactRoute</a>
         </nav>
-        <h1><a href="https://www.w3schools.com/html/html5_semantic_elements.asp">Semantic Elements</a> &amp; Css tricks</h1>
+        <h1><a href="https://www.w3schools.com/html/html5_semantic_elements.asp">Semantic Elements</a></h1>
     </header>
     <main>
         <section>
@@ -73,33 +83,9 @@
             <p>通常包含 作者資訊 / 版權資訊 / 聯絡資訊 / &lt;nav&gt;（&lt;footer&gt;的導航欄通常是到其他個人社群）</p>
         </section>
         <section>
-            <h3>當內容沒有超出範圍，讓&lt;footer&gt;貼齊下方空間的方法</h3>
-<pre>
-content in the &lt;body&gt; without &lt;footer&gt;{
-    min-height: calc(100vh - &lt;footer&gt;height)
-}
-</pre>
-        </section>
-        <section>
-            <h3>rwd，偵測手機、平板橫向模式的顯示</h3>
-<pre>
-@media (orientation: portrait) {
-    content...
-    }
-</pre>
-            <p>portrait是指手機等的橫向模式</p>
-        </section>
-        <section>
-            <h3>利用flex輕鬆將navbar的內容標題分成左右邊的方法</h3>
-<pre>
-.container{
-    display: flex;
-}
-.item-1{
-    margin-right: auto;
-}
-</pre>
-            <p>想從第幾個開始分開，就選擇第幾個item</p>
+            <h3><a href="https://developer.mozilla.org/zh-TW/docs/Web/HTML/Global_attributes/data-*">自訂html屬性</a></h3>
+            <p>自訂的屬性通常命名為<b>data-name</b>，name可以自訂</p>
+            <p>想要利用js選取特定元素時會用到，例如<b>document.querySelector('element[data-name]')</b>，如果想指定自訂屬性的value可以用<b>document.querySelector('element[data-name]=value')</b>，value可以是變量也可以是字串</p>
         </section>
         <section>
             <h3>小工具</h3>
