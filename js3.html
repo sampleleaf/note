@@ -51,6 +51,7 @@
             <a class="active" href="#">jsNotion3</a>
             <a href="./terminal.html">terminal</a>
             <a href="./git.html">git&gitHub</a>
+            <a href="./firebase.html">firebase</a>
             <a href="./installReact.html">installReact</a>
             <a href="./react.html">react</a>
             <a href="./react2.html">react2</a>
@@ -60,6 +61,27 @@
         <h1>JsNotion</h1>
     </header>
     <main>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">querySelectorAll選取元素的特殊方法</a></h3>
+            <p>一般都是抓id抓class抓elements</p>
+            <p>其實也可以抓<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">attribute selector</a></p>
+            <p>範例：<b>document.querySelectorAll('input[type="text"]')</b>或抓自定義的屬性<b>document.querySelector(`a[data-category="monkey"]`)</b></p>
+        </section>
+        <section>
+            <h3>如何獲取被觸發事件的元素的<b>自定義屬性(data-name)</b></h3>
+            <code>
+    categoryLink.addEventListener('click', (e) => {
+        console.log(e.target.<b>getAttribute(</b>'data-category'<b>)</b>);
+        //e.target.data-category <b>dot-notation捕獲不到</b> 
+    })
+            </code>
+            <p>如果是正常的內建屬性javascript是可以用dot-notation來捕獲的</p>
+        </section>
+        <section>
+            <h3>HTMLcollection和NodeList可否使用array.method</h3>
+            <p>在現代browser，nodeList仍然是類array，但已經可以使用array.method</p>
+            <p>HTMLcollection則不行，但是利用spread和array轉換就可以。<b>htmlArray = [...HTMLcollection]</b></p>
+        </section>
         <section>
             <h3><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals">模板文字</a></h3>
             <p>${expression}可以像這樣<b>${variable || 'string'}</b>，當variable為false時會套用string，反之true則套用variable</p>
@@ -86,6 +108,13 @@
             <p><b>scrollY</b>是垂直方向滾動的pixel</p>
             <p><b>HTMLElement.offsetHeight</b>會讀取元素的高度，如果要獲取整個page的高度，使用document.body.offsetHeight就可以了</p>
             <p>當網頁滾動到底時的條件就是<b>window.innerHeight + window.scrollY >= document.body.offsetHeight</b></p>
+            <p>額外補充，當因為用戶螢幕過大，沒有出現滾輪時，可以把條件設置成window.innerHeight === document.body.offsetHeight時觸發，可能會運用到<b>遞迴(ex.在a函數內再次調用a函數)</b></p>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/API/History/pushState">pushState</a></h3>
+            <p>如果想更改url，可以用<b>history.pushState(null, null, URL);</b></p>
+            <p>URL用相對url或絕對url都可以，但以上方code而言，他只會改變url，不會帶你去其他頁面，除非自己額外加code處理</p>
+            <p>但就算不去其他頁面，也有更改網頁的方法，如果以抓api呈現在頁面來講，我們可以抓url的參數代入api，重新fetchapi來更改頁面</p>
         </section>
     </main>
     <footer>

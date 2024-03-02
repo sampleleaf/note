@@ -58,6 +58,7 @@
             <a href="./js3.html">jsNotion3</a>
             <a href="./terminal.html">terminal</a>
             <a href="./git.html">git&gitHub</a>
+            <a href="./firebase.html">firebase</a>
             <a href="./installReact.html">installReact</a>
             <a class="active" href="#">react</a>
             <a href="./react2.html">react2</a>
@@ -76,7 +77,7 @@
             <p>這個類html標籤內或標籤之間都可以添加<b>{js表達式}</b>，稱為"jsx表達式"</p>
         </section>
         <section>
-            <h3><a href="https://teamtreehouse.com/library/react-basics-4/embed-javascript-expressions-in-jsx">jsx-規則</a></h3>
+            <h3><a href="https://react.dev/learn/writing-markup-with-jsx#the-rules-of-jsx">jsx-規則</a></h3>
             <ol>
                 <li>
                     <p><b>Return a single root element</b>這個意思是當我們要寫複數元素時，記得要用<b>&lt;div&gt;&lt;/div&gt;</b>或<b>&lt;&gt;&lt;/&gt;</b>包住，否則<a href="<b>&lt;div&gt;&lt;/div&gt;</b>或<b>&lt;&gt;&lt;/&gt;</b>">error</a>，因為無法直接傳回多個object</p>
@@ -92,13 +93,13 @@
             <p>渲染網頁時，index.html中的&lt;div id="root"&gt;&lt;/div&gt;內的所有內容會被jsx取代，包含這個元素本身，但在這元素以外則不會</p>
         </section>
         <section>
-            <h3>創建component</h3>
+            <h3><a href="https://react.dev/learn/importing-and-exporting-components">創建component</a></h3>
             <p>用function來製作component，作為component的function名稱開頭要大寫</p>
             <p>function內要用return來回傳我們所輸入的jsx及內容，如果要輸入多行，得用<b>return()</b>，將jsx及內容輸入到括號內。不用括號的話，return那行以下的內容將被忽略</p>
             <p>在.render中用jsx標記(大寫的function名稱加一個空格可以作為標記名稱)來顯示component</p>
         </section>
         <section>
-            <h3><a href="https://react.dev/learn/passing-props-to-a-component"></a>傳遞props到component</h3>
+            <h3><a href="https://react.dev/learn/passing-props-to-a-component">傳遞props到component</a></h3>
             <p>主要功能可以說props將資料從parent-component傳到child-component</p>
             <p>作為component的function的第一個參數為props</p>
             <p>jsx中的標記所添加的屬性(props)，都可以被調用。例如&lt;Header haha="something"/&gt;，haha就是props的key</p>

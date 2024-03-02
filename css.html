@@ -36,6 +36,7 @@
             <a href="./js3.html">jsNotion3</a>
             <a href="./terminal.html">terminal</a>
             <a href="./git.html">git&gitHub</a>
+            <a href="./firebase.html">firebase</a>
             <a href="./installReact.html">installReact</a>
             <a href="./react.html">react</a>
             <a href="./react2.html">react2</a>
@@ -62,9 +63,12 @@
             <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit">object-fit</a>跟background-size一樣，只是這個是對img元素進行操作</p>
         </section>
         <section>
-            <h3>skeleton loading css</h3>
+            <h3><a href="https://medium.com/tiffrrr/css-%E4%BD%BF%E7%94%A8background-animation-%E8%A3%BD%E4%BD%9Cskeleton-loading-screen-f68fb307525c">skeleton loading css</a></h3>
             <p>預先做好要加載畫面的容器大小，並且加載後利用js將其隱藏或移除</p>
             <p>除了作出容器，還需要讓容器要animation的效果，讓用戶知道畫面正在跑動</p>
+            <p>一般會在容器的偽類<b>::before</b>或<b>::after</b>上<b>做特效</b>，而非容器本身，容器本身主要是決定寬高，設定<b>postion: relative</b>來作為偽類的基本定位</p>
+            <p>偽類基本設定一定包含，繼承容器寬高(width和height可以設100%)，使偽類存在的<b>content: "";</b>，使偽類定位在容器上方的<b>position: absolute;</b>及<b>z-index</b>，特效記得用漸層透明的做法，再加animation移動漸層位置達到效果</p>
+            <p>特效別設在容器內的東西，否則東西長寬不同，會導致動畫特效不一致</p>
             <p>加載圖片要用div包住，div要先預設大小，否則會有page-jumping的問題</p>
             <p>預防圖片有image-jumping的問題，div最好預設<b>postion: relative;</b>及<b>overflow: hidden;</b>img則要設置<b>position: absolute;</b></p>
         </section>
