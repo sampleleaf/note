@@ -87,6 +87,12 @@
             <p>${expression}可以像這樣<b>${variable || 'string'}</b>，當variable為false時會套用string，反之true則套用variable</p>
         </section>
         <section>
+            <h3>短路求值</h3>
+            <p>其實上方模板文字就是利用這個技巧</p>
+            <p>a<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND">&&</a>b，如果a為true則回傳b</p>
+            <p>a<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR">||</a>b，如果a為false則回傳b</p>
+        </section>
+        <section>
             <h3><a href="https://www.w3schools.com/js/js_window_location.asp">JavaScript Window Location</a></h3>
             <p>想要透過javascript切換網址，可以使用<b>window.location.href</b>，不過window不一定要打出來，其實用<b>location.href</b>同樣可以直接訪問</p>
         </section>
@@ -115,6 +121,10 @@
             <p>如果想更改url，可以用<b>history.pushState(null, null, URL);</b></p>
             <p>URL用相對url或絕對url都可以，但以上方code而言，他只會改變url，不會帶你去其他頁面，除非自己額外加code處理</p>
             <p>但就算不去其他頁面，也有更改網頁的方法，如果以抓api呈現在頁面來講，我們可以抓url的參數代入api，重新fetchapi來更改頁面</p>
+        </section>
+        <section>
+            <h3><a href="https://developer.mozilla.org/zh-TW/docs/Glossary/IIFE">IIFE</a></h3>
+            <p>可以立即執行函數，函數沒名稱也可以執行(但不能被呼叫，所以只會執行一次)，實際可應用在fetch上面</p>
         </section>
     </main>
     <footer>

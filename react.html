@@ -135,7 +135,9 @@
             <p>以上述情況，在javascript中當名稱為Apples時，最後結果是會是+2</p>
             <p>但在react中state是用<b>replace(取代)</b>的方式，且react會等到事件處理程序中的所有程式碼都執行完畢後才處理狀態更新</p>
             <p>所以最後結果Apples仍是+1</p>
-            <p>如果想要累加的方式必須使用函數，setQuantity(quantity + 1)改成setQuantity(quantity => quantity + 1)，雖然一般不會這樣做</p>
+            <p>如果想要累加的方式必須使用函數，setQuantity(quantity + 1)改成setQuantity(quantity => quantity + 1)</p>
+            <p style="color: red;">請勿將setState放進render來用，這是badState，把setState放在function的statement裡才是正確的</p>
+            <p style="color: red;">使用setState(state)，新的state並不是馬上出現，如果你console.log(state)，實際上出現的不是新的state，而是舊的state，這是因為useState是非同步的</p>
         </section>
         <section>
             <h3>react偵錯</h3>
